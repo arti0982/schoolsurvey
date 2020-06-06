@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Finish survey</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Finish Survey</h1>
+<a th:href="@{/surveys}">Back to Surveys</a>
+<br/><br/>
+<div th:if="${survey}">
+    <form th:action="@{/responses}" method="post" th:object="${response}">
+        <input type="hidden" th:field="*{userId}" th:value="user">
+        <table border="0">
+            <tr th:each ="question : ${survey.questions}">
+                <td><h2 th:utext="${question.title}">...</h2></td>
+                <table border="0">
+                    <ul style="list-style-type: none">
+                        <li th:each="option : ${question.options}">
+                            <input type="checkbox" th:field="*{optionIds}" th:value="${option.optionId}" />
+                            <label th:for="${option.optionId}"
+                                   th:utext="${option.optionText}"></label>
+                        </li>
+                    </ul>
+                </table>
+            </tr>
+        </table>
+<!--    <br/><br/>-->
+        <div><button type="submit">Submit</button></div>
+    </form>
+</div>
+<div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />
+</body>
+</html>
