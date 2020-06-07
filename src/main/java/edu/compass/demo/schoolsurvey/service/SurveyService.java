@@ -32,6 +32,5 @@ public class SurveyService {
 
     public void submitSurveyResponse(String optionId) {
         responseRepository.insertWithQuery(optionId, "user");
-        System.out.println("");
     }
 }

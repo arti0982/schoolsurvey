@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Arrays;
+
 @Controller
 public class SurveyController {
     @Autowired
@@ -39,11 +41,8 @@ public class SurveyController {
     @PostMapping(value = "/responses")
     public String submitResponse(Model model, @ModelAttribute("response") Response response) {
         try {
-            System.out.println("The selected options in Controller are:" + response.getOptionIds());
             if (response.getOptionIds() != null) {
-                for (int i = 0; i < response.getOptionIds().length; i++) {
-                    surveyService.submitSurveyResponse(response.getOptionIds()[i]);
-                }
+                Arrays.stream(response.getOptionIds()).forEach(optionId -> surveyService.submitSurveyResponse(optionId));
             }
 
             return "thankyou";
@@ -63,11 +62,4 @@ public class SurveyController {
             return "index";
         }
     }
-
-
-//    @RequestMapping(method = RequestMethod.POST, value = "/surveys")
-//    public Boolean addSurvey(@RequestBody Survey survey) {
-//        surveyService.addSurvey(survey);
-//        return true;
-//    }
 }
