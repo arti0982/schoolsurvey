@@ -6,7 +6,10 @@ import edu.compass.demo.schoolsurvey.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SurveyController {
@@ -14,7 +17,7 @@ public class SurveyController {
     private SurveyService surveyService;
 
     @GetMapping(value = {"/", "/index", "/surveys"})
-    public String index(Model model) {
+    public String getAllSurveys(Model model) {
         model.addAttribute("title", "Survey List");
         model.addAttribute("surveys", surveyService.getAllSurveys());
         return "index";
@@ -26,7 +29,7 @@ public class SurveyController {
         try {
             survey = surveyService.findById(surveyId);
         } catch (Exception ex) {
-            model.addAttribute("errorMessage", "Contact not found");
+            model.addAttribute("errorMessage", "Survey details not found");
         }
         model.addAttribute("response", new Response());
         model.addAttribute("survey", survey);
@@ -34,11 +37,18 @@ public class SurveyController {
     }
 
     @PostMapping(value = "/responses")
-    public String addResponse(Model model, @ModelAttribute("response") Response response) {
+    public String submitResponse(Model model, @ModelAttribute("response") Response response) {
         try {
-//            Contact newContact = contactService.save(contact);
-            return "";
+            System.out.println("The selected options in Controller are:" + response.getOptionIds());
+            if (response.getOptionIds() != null) {
+                for (int i = 0; i < response.getOptionIds().length; i++) {
+                    surveyService.submitSurveyResponse(response.getOptionIds()[i]);
+                }
+            }
+
+            return "thankyou";
         } catch (Exception ex) {
+            ex.printStackTrace();
 //            // log exception first,
 //            // then show error
 //            String errorMessage = ex.getMessage();
@@ -47,14 +57,17 @@ public class SurveyController {
 //
 //            //model.addAttribute("contact", contact);
 //            model.addAttribute("add", true);
-            return "contact-edit";
+
+
+//            return true;
+            return "index";
         }
     }
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/surveys")
-    public Boolean addSurvey(@RequestBody Survey survey) {
-        surveyService.addSurvey(survey);
-        return true;
-    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/surveys")
+//    public Boolean addSurvey(@RequestBody Survey survey) {
+//        surveyService.addSurvey(survey);
+//        return true;
+//    }
 }

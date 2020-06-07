@@ -1,20 +1,41 @@
 package edu.compass.demo.schoolsurvey.dto;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Transient;
+import java.util.Arrays;
 
+@Entity
+@IdClass(ResponseId.class)
 public class Response {
+
+    //    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Integer responseId;
+    @Id
     private String userId = "user";
-    private List<Question> questions;
+
+    //    @Transient
+//    private String[] questionIds;
+    @Transient
     private String[] optionIds;
 
-    public Response(){
+    @Id
+    private String surveyId;
+    @Id
+    private String questionId;
+    @Id
+    private String optionId;
 
+    public Response() {
     }
 
-    public Response(String userId, List<Question> questions,  String[] optionIds) {
+    public Response(String userId, String surveyId, String questionId, String optionId) {
         this.userId = userId;
-        this.questions = questions;
-        this.optionIds = optionIds;
+        this.surveyId = surveyId;
+        this.questionId = questionId;
+        this.optionId = optionId;
     }
 
     public String getUserId() {
@@ -25,13 +46,13 @@ public class Response {
         this.userId = userId;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
+//    public String[] getQuestionIds() {
+//        return questionIds;
+//    }
+//
+//    public void setQuestionIds(String[] questionIds) {
+//        this.questionIds = questionIds;
+//    }
 
     public String[] getOptionIds() {
         return optionIds;
@@ -39,5 +60,30 @@ public class Response {
 
     public void setOptionIds(String[] optionIds) {
         this.optionIds = optionIds;
+    }
+
+    public String getSurveyId() {
+        return surveyId;
+    }
+
+    public void setSurveyId(String surveyId) {
+        this.surveyId = surveyId;
+    }
+
+//    public Integer getResponseId() {
+//        return responseId;
+//    }
+
+//    public void setResponseId(Integer responseId) {
+//        this.responseId = responseId;
+//    }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "userId='" + userId + '\'' +
+                ", optionIds=" + Arrays.toString(optionIds) +
+                ", surveyId='" + surveyId + '\'' +
+                '}';
     }
 }

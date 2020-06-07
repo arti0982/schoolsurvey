@@ -1,6 +1,7 @@
 package edu.compass.demo.schoolsurvey.service;
 
 import edu.compass.demo.schoolsurvey.dto.Survey;
+import edu.compass.demo.schoolsurvey.repository.ResponseRepository;
 import edu.compass.demo.schoolsurvey.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ import java.util.List;
 public class SurveyService {
     @Autowired
     private SurveyRepository surveyRepository;
+
+    @Autowired
+    private ResponseRepository responseRepository;
 
     public List<Survey> getAllSurveys() {
         List<Survey> surveys = new ArrayList<>();
@@ -26,8 +30,8 @@ public class SurveyService {
         } else return survey;
     }
 
-
-    public void addSurvey(Survey survey) {
-        surveyRepository.save(survey);
+    public void submitSurveyResponse(String optionId) {
+        responseRepository.insertWithQuery(optionId, "user");
+        System.out.println("");
     }
 }

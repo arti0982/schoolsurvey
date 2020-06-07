@@ -14,11 +14,11 @@ import java.util.List;
 public class QuestionController {
     @Autowired
     private SurveyService surveyService;
-    @RequestMapping(value = "/surveys/{id}/questions")
-    public List<Survey> getAllSurveys()
-    {
-        return surveyService.getAllSurveys();
-    }
+//    @RequestMapping(value = "/surveys/{id}/questions")
+//    public List<Survey> getAllSurveys()
+//    {
+//        return surveyService.getAllSurveys();
+//    }
 
 //    @RequestMapping(method= RequestMethod.POST, value="/surveys")
 //    public Boolean addSurvey(@RequestBody Survey survey)
