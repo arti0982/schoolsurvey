@@ -9,24 +9,17 @@ import java.util.Arrays;
 @Entity
 @IdClass(ResponseId.class)
 public class Response {
-
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Integer responseId;
     @Id
     private String userId = "user";
-
-    //    @Transient
-//    private String[] questionIds;
-    @Transient
-    private String[] optionIds;
-
     @Id
     private String surveyId;
     @Id
     private String questionId;
     @Id
     private String optionId;
+
+    @Transient
+    private String[] optionIds;
 
     public Response() {
     }
@@ -46,14 +39,6 @@ public class Response {
         this.userId = userId;
     }
 
-//    public String[] getQuestionIds() {
-//        return questionIds;
-//    }
-//
-//    public void setQuestionIds(String[] questionIds) {
-//        this.questionIds = questionIds;
-//    }
-
     public String[] getOptionIds() {
         return optionIds;
     }
@@ -70,13 +55,21 @@ public class Response {
         this.surveyId = surveyId;
     }
 
-//    public Integer getResponseId() {
-//        return responseId;
-//    }
+    public String getQuestionId() {
+        return questionId;
+    }
 
-//    public void setResponseId(Integer responseId) {
-//        this.responseId = responseId;
-//    }
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
+    public String getOptionId() {
+        return optionId;
+    }
+
+    public void setOptionId(String optionId) {
+        this.optionId = optionId;
+    }
 
     @Override
     public String toString() {
@@ -86,4 +79,5 @@ public class Response {
                 ", surveyId='" + surveyId + '\'' +
                 '}';
     }
+
 }
