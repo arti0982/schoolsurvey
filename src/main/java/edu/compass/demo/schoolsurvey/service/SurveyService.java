@@ -1,6 +1,7 @@
 package edu.compass.demo.schoolsurvey.service;
 
 import edu.compass.demo.schoolsurvey.dto.Survey;
+import edu.compass.demo.schoolsurvey.dto.User;
 import edu.compass.demo.schoolsurvey.repository.ResponseRepository;
 import edu.compass.demo.schoolsurvey.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,7 @@ public class SurveyService {
 
     public List<Survey> getAllSurveys() {
         List<Survey> surveys = new ArrayList<>();
-//        surveyRepository.findAll().forEach(surveys::add);
-        surveyRepository.findAllNewSurveys().forEach(surveys::add);
+        surveyRepository.findAllNewSurveys(User.DEFAULT_USER_ID).forEach(surveys::add);
         return surveys;
     }
 

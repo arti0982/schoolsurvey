@@ -7,6 +7,3 @@ import org.springframework.data.repository.query.Param;
 public interface ResponseRepository extends CrudRepository<Response, String>, ResponseRepositoryCustom {
     Response getResponseDataByOptionId(@Param("option_Id") String option_Id);
 }
-
-
-

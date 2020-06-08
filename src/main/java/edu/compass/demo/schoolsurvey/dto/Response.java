@@ -10,7 +10,7 @@ import java.util.Arrays;
 @IdClass(ResponseId.class)
 public class Response {
     @Id
-    private String userId = "user";
+    private String userId = User.DEFAULT_USER_ID;
     @Id
     private Integer surveyId;
     @Id

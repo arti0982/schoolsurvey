@@ -10,6 +10,7 @@ public class Option {
     @Id
     private Integer optionId;
     private String optionText;
+
     public Option() {
     }
 
@@ -20,7 +21,7 @@ public class Option {
     }
 
     @ManyToOne
-    @JoinColumn(name="questionId")
+    @JoinColumn(name = "questionId")
     private Question question;
 
     public Integer getOptionId() {
@@ -48,9 +49,7 @@ public class Option {
     }
 
     @Override
-    public String
-
-    toString() {
+    public String toString() {
         return "Option{" +
                 "optionId='" + optionId + '\'' +
                 ", optionText='" + optionText + '\'' +

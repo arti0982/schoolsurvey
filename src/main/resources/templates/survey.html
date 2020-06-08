@@ -9,17 +9,20 @@
 
 </head>
 <body>
-<h4>Please Submit the Selected Survey</h4>
-<a class="nav-link" th:href="@{/surveys}">Back to Surveys</a>
+<h4>Please Submit the Survey</h4>
+<a class="nav-link" th:href="@{/surveys}"><< Back to Surveys</a>
 <br/><br/>
 <div th:if="${survey}">
     <form th:action="@{/responses}" method="post" th:object="${response}">
-        <input type="hidden" th:field="*{userId}" th:value="user">
+        <input type="hidden" name="surveyId" th:value="${survey.surveyId}">
+        <div th:if="${errors}"><h4 th:utext="${errors}">...</h4></div>
+
+        <h4 th:utext="${survey.surveyName}">...</h4>
+        <br/>
         <table border="0">
             <tr th:each ="question : ${survey.questions}">
                 <td><h5 th:utext="${question.title}">...</h5></td>
                 <table border="0">
-<!--                    <ul style="list-style-type: none">-->
                     <ul class="list-group ">
                         <li class="list-group-item" th:each="option : ${question.options}">
                             <input type="checkbox" th:field="*{optionIds}" th:value="${option.optionId}" />
@@ -30,7 +33,7 @@
                 </table>
             </tr>
         </table>
-        <br></br>
+        <br/>
         <div><button type="submit" class="btn btn-primary">Submit</button></div>
     </form>
 </div>

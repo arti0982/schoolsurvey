@@ -22,9 +22,6 @@ insert into option(option_id, option_text, question_id) values ('3', 'Not so Eff
 insert into option(option_id, option_text, question_id) values ('4', 'Not at all Effective', '1');
 insert into option(option_id, option_text, question_id) values ('5', 'Sonewhat Effective', '1');
 
-
-
-
 insert into option(option_id, option_text, question_id) values ('6', 'Extremely well-maintained', '2');
 insert into option(option_id, option_text, question_id) values ('7', 'Very well well-maintained', '2');
 insert into option(option_id, option_text, question_id) values ('8', 'Not so well-maintained', '2');
