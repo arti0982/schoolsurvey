@@ -2,6 +2,7 @@ package edu.compass.demo.schoolsurvey.dto;
 
 import java.io.Serializable;
 
+// Composite ID class
 public class ResponseId implements Serializable {
     private String userId = "user";
     private Integer surveyId;

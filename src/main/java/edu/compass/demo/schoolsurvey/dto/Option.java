@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+// Class to store Options for a Question
 @Entity
 public class Option {
     @Id

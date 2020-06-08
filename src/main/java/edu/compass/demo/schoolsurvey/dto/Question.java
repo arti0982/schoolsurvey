@@ -1,12 +1,9 @@
 package edu.compass.demo.schoolsurvey.dto;
 
-import java.sql.Timestamp;
+import javax.persistence.*;
 import java.util.List;
 
-import edu.compass.demo.schoolsurvey.dto.Option;
-
-import javax.persistence.*;
-
+// Class to store Question metadata
 @Entity
 public class Question {
     @Id

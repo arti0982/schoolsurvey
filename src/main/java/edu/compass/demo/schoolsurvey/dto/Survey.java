@@ -1,12 +1,11 @@
 package edu.compass.demo.schoolsurvey.dto;
 
-import edu.compass.demo.schoolsurvey.dto.Question;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+// Class to store Survey metadata
 @Entity
 public class Survey {
     @Id

@@ -6,6 +6,7 @@ import javax.persistence.IdClass;
 import javax.persistence.Transient;
 import java.util.Arrays;
 
+// Class to Record User Responses
 @Entity
 @IdClass(ResponseId.class)
 public class Response {

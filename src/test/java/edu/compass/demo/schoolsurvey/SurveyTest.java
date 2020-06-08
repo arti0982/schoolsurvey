@@ -28,6 +28,8 @@ public class SurveyTest {
     private ResponseRepository responseRepository;
 
     public static String DEFAULT_TEST_USER = "testUser";
+
+    // This method tests that the user can fetch all the unattempted surveys
     @Test
     public void testGetAllSurveys() {
         Collection<Survey> allSurveys = surveyRepository.findAllNewSurveys(DEFAULT_TEST_USER);
@@ -35,6 +37,7 @@ public class SurveyTest {
         assertThat(allSurveys).size().isEqualTo(3);
     }
 
+    // This method tests the lookup by Id for Survey
     @Test
     public void testFindSurveyById() {
         Survey survey = surveyRepository.findById(2).orElse(null);
@@ -45,6 +48,8 @@ public class SurveyTest {
         assertThat(survey.getQuestions().get(0).getOptions().size()).isEqualTo(5);
     }
 
+//  This method Submits test responses for a survey post which it fetches the unattempted Survey List
+//  Gets back one less survey too attempt.
     @Test
     public void testSubmitSurveyResponse() {
         responseRepository.insertWithQuery(3, DEFAULT_TEST_USER);

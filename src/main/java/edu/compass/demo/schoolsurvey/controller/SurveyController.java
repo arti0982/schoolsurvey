@@ -20,7 +20,7 @@ public class SurveyController {
     @Autowired
     private SurveyService surveyService;
 
-    //this method gets all surveys that the user hasnt filled out yet
+    //this method gets all surveys that the user hasn't filled out yet
     @GetMapping(value = {"/", "/index", "/surveys"})
     public String getAllSurveys(Model model) {
         model.addAttribute("title", "Survey List");
@@ -28,6 +28,7 @@ public class SurveyController {
         return "index";
     }
 
+    //this method gets a particular survey details, including questions and options
     @GetMapping(value = "/surveys/{surveyId}")
     public String getSurveyById(Model model, @PathVariable Integer surveyId) {
         Survey survey = null;
@@ -41,8 +42,9 @@ public class SurveyController {
         return "survey";
     }
 
+    //this method submits User Responses for a Survey.
     @PostMapping(value = "/responses")
-    public String submitResponse(Model model, @ModelAttribute("response") Response response, BindingResult bindingResult) {
+    public String submitResponses(Model model, @ModelAttribute("response") Response response, BindingResult bindingResult) {
         try {
 //            if (bindingResult.hasErrors()) {
 //                return "index";
