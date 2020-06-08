@@ -17,7 +17,6 @@ public class ResponseRepositoryImpl implements ResponseRepositoryCustom {
                     .setParameter(1, userId)
                     .setParameter(2, optionId)
                     .executeUpdate();
-            System.out.println("updated:" + updated);
         } catch (Exception e) {
             e.printStackTrace();
         }
