@@ -19,18 +19,19 @@ public class SurveyService {
 
     public List<Survey> getAllSurveys() {
         List<Survey> surveys = new ArrayList<>();
-        surveyRepository.findAll().forEach(surveys::add);
+//        surveyRepository.findAll().forEach(surveys::add);
+        surveyRepository.findAllNewSurveys().forEach(surveys::add);
         return surveys;
     }
 
-    public Survey findById(String surveyId) throws Exception {
+    public Survey findById(Integer surveyId) throws Exception {
         Survey survey = surveyRepository.findById(surveyId).orElse(null);
         if (survey == null) {
             throw new Exception("Cannot find Survey with surveyId: " + surveyId);
         } else return survey;
     }
 
-    public void submitSurveyResponse(String optionId) {
+    public void submitSurveyResponse(Integer optionId) {
         responseRepository.insertWithQuery(optionId, "user");
     }
 }

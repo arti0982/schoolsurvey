@@ -12,19 +12,19 @@ public class Response {
     @Id
     private String userId = "user";
     @Id
-    private String surveyId;
+    private Integer surveyId;
     @Id
-    private String questionId;
+    private Integer questionId;
     @Id
-    private String optionId;
+    private Integer optionId;
 
     @Transient
-    private String[] optionIds;
+    private Integer[] optionIds;
 
     public Response() {
     }
 
-    public Response(String userId, String surveyId, String questionId, String optionId) {
+    public Response(String userId, int surveyId, int questionId, int optionId) {
         this.userId = userId;
         this.surveyId = surveyId;
         this.questionId = questionId;
@@ -39,35 +39,35 @@ public class Response {
         this.userId = userId;
     }
 
-    public String[] getOptionIds() {
+    public Integer[] getOptionIds() {
         return optionIds;
     }
 
-    public void setOptionIds(String[] optionIds) {
+    public void setOptionIds(Integer[] optionIds) {
         this.optionIds = optionIds;
     }
 
-    public String getSurveyId() {
+    public Integer getSurveyId() {
         return surveyId;
     }
 
-    public void setSurveyId(String surveyId) {
+    public void setSurveyId(Integer surveyId) {
         this.surveyId = surveyId;
     }
 
-    public String getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(String questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
-    public String getOptionId() {
+    public Integer getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(String optionId) {
+    public void setOptionId(Integer optionId) {
         this.optionId = optionId;
     }
 

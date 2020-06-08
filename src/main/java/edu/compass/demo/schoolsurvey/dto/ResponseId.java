@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class ResponseId implements Serializable {
     private String userId = "user";
-    private String surveyId;
-    private String questionId;
-    private String optionId;
+    private Integer surveyId;
+    private Integer questionId;
+    private Integer optionId;
 
     public ResponseId() {
     }
 
-    public ResponseId(String userId, String surveyId, String questionId, String optionId) {
+    public ResponseId(String userId, Integer surveyId, Integer questionId, Integer optionId) {
         this.userId = userId;
         this.surveyId = surveyId;
         this.questionId = questionId;
@@ -26,27 +26,27 @@ public class ResponseId implements Serializable {
         this.userId = userId;
     }
 
-    public String getSurveyId() {
+    public Integer getSurveyId() {
         return surveyId;
     }
 
-    public void setSurveyId(String surveyId) {
+    public void setSurveyId(Integer surveyId) {
         this.surveyId = surveyId;
     }
 
-    public String getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(String questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
-    public String getOptionId() {
+    public Integer getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(String optionId) {
+    public void setOptionId(Integer optionId) {
         this.optionId = optionId;
     }
 }

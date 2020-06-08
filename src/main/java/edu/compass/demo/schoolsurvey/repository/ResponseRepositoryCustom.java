@@ -1,7 +1,7 @@
 package edu.compass.demo.schoolsurvey.repository;
 
 public interface ResponseRepositoryCustom {
-    void insertWithQuery(String optionId, String userId);
+    void insertWithQuery(Integer optionId, String userId);
 }
 
 

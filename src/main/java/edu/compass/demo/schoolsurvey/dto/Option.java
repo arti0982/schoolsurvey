@@ -8,12 +8,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Option {
     @Id
-    private String optionId;
+    private Integer optionId;
     private String optionText;
     public Option() {
     }
 
-    public Option(String optionId, String optionText) {
+    public Option(Integer optionId, String optionText) {
         super();
         this.optionId = optionId;
         this.optionText = optionText;
@@ -23,11 +23,11 @@ public class Option {
     @JoinColumn(name="questionId")
     private Question question;
 
-    public String getOptionId() {
+    public Integer getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(String optionId) {
+    public void setOptionId(Integer optionId) {
         this.optionId = optionId;
     }
 

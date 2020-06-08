@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Survey {
     @Id
-    private String surveyId;
+    private Integer surveyId;
     private String surveyName;
 
     @OneToMany(mappedBy = "survey")
@@ -19,18 +19,18 @@ public class Survey {
     public Survey() {
     }
 
-    public Survey(String surveyId, String surveyName, List<Question> questions) {
+    public Survey(Integer surveyId, String surveyName, List<Question> questions) {
         super();
         this.surveyId = surveyId;
         this.surveyName = surveyName;
         this.questions = questions;
     }
 
-    public String getSurveyId() {
+    public Integer getSurveyId() {
         return surveyId;
     }
 
-    public void setSurveyId(String surveyId) {
+    public void setSurveyId(Integer surveyId) {
         this.surveyId = surveyId;
     }
 

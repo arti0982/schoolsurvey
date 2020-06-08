@@ -26,7 +26,7 @@ public class SurveyController {
     }
 
     @GetMapping(value = "/surveys/{surveyId}")
-    public String getSurveyById(Model model, @PathVariable String surveyId) {
+    public String getSurveyById(Model model, @PathVariable Integer surveyId) {
         Survey survey = null;
         try {
             survey = surveyService.findById(surveyId);

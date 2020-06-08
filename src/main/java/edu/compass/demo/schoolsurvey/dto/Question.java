@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 public class Question {
     @Id
-    private String questionId;
+    private Integer questionId;
 
     @Column(nullable = true)
     private String createdBy;
@@ -33,7 +33,7 @@ public class Question {
     public Question() {
     }
 
-    public Question(String questionId, String title, List<Option> options) {
+    public Question(Integer questionId, String title, List<Option> options) {
         super();
         this.questionId = questionId;
 //        this.createdBy = createdBy;
@@ -51,11 +51,11 @@ public class Question {
         this.options = options;
     }
 
-    public String getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(String questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
