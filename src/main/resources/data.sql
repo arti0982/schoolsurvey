@@ -21,7 +21,7 @@ insert into option(option_id, option_text, question_id) values ('1', 'Extremely 
 insert into option(option_id, option_text, question_id) values ('2', 'Very Effective', '1');
 insert into option(option_id, option_text, question_id) values ('3', 'Not so Effective', '1');
 insert into option(option_id, option_text, question_id) values ('4', 'Not at all Effective', '1');
-insert into option(option_id, option_text, question_id) values ('5', 'Sonewhat Effective', '1');
+insert into option(option_id, option_text, question_id) values ('5', 'Somewhat Effective', '1');
 
 insert into option(option_id, option_text, question_id) values ('6', 'Extremely well-maintained', '2');
 insert into option(option_id, option_text, question_id) values ('7', 'Very well well-maintained', '2');
@@ -59,16 +59,16 @@ insert into option(option_id, option_text, question_id) values ('31', 'Extremely
 insert into option(option_id, option_text, question_id) values ('32', 'Very satisfied', '7');
 insert into option(option_id, option_text, question_id) values ('33', 'Not so satisfied', '7');
 insert into option(option_id, option_text, question_id) values ('34', 'Not at all satisfied', '7');
-insert into option(option_id, option_text, question_id) values ('35', 'Sonewhat satisfied', '7');
+insert into option(option_id, option_text, question_id) values ('35', 'Somewhat satisfied', '7');
 
 insert into option(option_id, option_text, question_id) values ('36', 'Extremely satisfied', '8');
 insert into option(option_id, option_text, question_id) values ('37', 'Very satisfied', '8');
 insert into option(option_id, option_text, question_id) values ('38', 'Not so satisfied', '8');
 insert into option(option_id, option_text, question_id) values ('39', 'Not at all satisfied', '8');
-insert into option(option_id, option_text, question_id) values ('40', 'Sonewhat satisfied', '8');
+insert into option(option_id, option_text, question_id) values ('40', 'Somewhat satisfied', '8');
 
 insert into option(option_id, option_text, question_id) values ('41', 'Extremely satisfied', '9');
 insert into option(option_id, option_text, question_id) values ('42', 'Very satisfied', '9');
 insert into option(option_id, option_text, question_id) values ('43', 'Not so satisfied', '9');
 insert into option(option_id, option_text, question_id) values ('44', 'Not at all satisfied', '9');
-insert into option(option_id, option_text, question_id) values ('45', 'Sonewhat satisfied', '9');
+insert into option(option_id, option_text, question_id) values ('45', 'Somewhat satisfied', '9');

@@ -21,7 +21,7 @@ public class Question {
     private Integer questionType;
 
     @ManyToOne
-    @JoinColumn(name="surveyId")
+    @JoinColumn(name = "surveyId")
     private Survey survey;
 
     @OneToMany(mappedBy = "question")

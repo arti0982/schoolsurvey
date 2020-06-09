@@ -18,7 +18,7 @@ public class SurveyService {
     @Autowired
     private ResponseRepository responseRepository;
 
-    public List<Survey> getAllSurveys() {
+    public List<Survey> getAllSurveys() throws Exception {
         List<Survey> surveys = new ArrayList<>();
         surveyRepository.findAllNewSurveys(User.DEFAULT_USER_ID).forEach(surveys::add);
         return surveys;
@@ -31,7 +31,8 @@ public class SurveyService {
         } else return survey;
     }
 
-    public void submitSurveyResponse(Integer optionId) {
+    public void submitSurveyResponse(Integer optionId) throws Exception {
         responseRepository.insertWithQuery(optionId, "user");
+
     }
 }

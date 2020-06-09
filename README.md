@@ -45,7 +45,7 @@ The following assumptions were done to limit functionality:
 * Basic validation in place to answer at least one question, can be enhanced to answer all survey questions
 * Spring security commented out, can be enabled to use Spring Boot user and generated password. 
 * For demo purposes, all surveys stored for Default user with Id "user"
-* Exception handling is incomplete and needs to be more comprehensive.
+* Browser 'Back' button behavior not handled in the app and should be avoided.
 * Local H2 Database can be queried and viewed at http://localhost:8080/h2-console/login.jsp with credentials sa/sa
 * Survey Data setup scripts are at src/main/resources/data.sql
 

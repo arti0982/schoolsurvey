@@ -24,7 +24,11 @@ public class SurveyController {
     @GetMapping(value = {"/", "/index", "/surveys"})
     public String getAllSurveys(Model model) {
         model.addAttribute("title", "Survey List");
-        model.addAttribute("surveys", surveyService.getAllSurveys());
+        try {
+            model.addAttribute("surveys", surveyService.getAllSurveys());
+        } catch (Exception ex) {
+            model.addAttribute("errorMessage", "Error while retrieving the list of available surveys.");
+        }
         return "index";
     }
 
@@ -45,22 +49,26 @@ public class SurveyController {
     //this method submits User Responses for a Survey.
     @PostMapping(value = "/responses")
     public String submitResponses(Model model, @ModelAttribute("response") Response response, BindingResult bindingResult) {
-        try {
-//            if (bindingResult.hasErrors()) {
-//                return "index";
-//            }
-
-            if (response.getOptionIds() != null && response.getOptionIds().length > 0) {
-                Arrays.stream(response.getOptionIds()).forEach(optionId -> surveyService.submitSurveyResponse(optionId));
-            } else {
-                model.addAttribute("errors","Please answer at least one question to complete the survey.");
-                return getSurveyById(model, response.getSurveyId());
-            }
-
-            return "thankyou";
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return "index";
+//        try {
+        if (response.getOptionIds() != null && response.getOptionIds().length > 0) {
+            Arrays.stream(response.getOptionIds()).forEach(optionId -> {
+                try {
+                    surveyService.submitSurveyResponse(optionId);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    model.addAttribute("errorMessage", "Error while submitting the Survey response");
+                }
+            });
+        } else {
+            model.addAttribute("errors", "Please answer at least one question to complete the survey.");
+            return getSurveyById(model, response.getSurveyId());
         }
+
+        return "thankyou";
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//            model.addAttribute("errorMessage", "Error while submitting the Survey response");
+//            return "index";
+//        }
     }
 }
