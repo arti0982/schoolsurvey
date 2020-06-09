@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Transient;
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 // Class to Record User Responses
@@ -19,6 +20,7 @@ public class Response {
     @Id
     private Integer optionId;
 
+    private Timestamp submittedDate;
     @Transient
     private Integer[] optionIds;
 
@@ -70,6 +72,14 @@ public class Response {
 
     public void setOptionId(Integer optionId) {
         this.optionId = optionId;
+    }
+
+    public Timestamp getSubmittedDate() {
+        return submittedDate;
+    }
+
+    public void setSubmittedDate(Timestamp submittedDate) {
+        this.submittedDate = submittedDate;
     }
 
     @Override

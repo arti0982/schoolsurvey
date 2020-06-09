@@ -12,8 +12,8 @@ public class ResponseRepositoryImpl implements ResponseRepositoryCustom {
     @Transactional
     public void insertWithQuery(Integer optionId, String userId) {
         try {
-            int updated = entityManager.createNativeQuery("INSERT INTO response (OPTION_ID, QUESTION_ID, SURVEY_ID, USER_ID) " +
-                    "select o.option_id, o.question_id, q.survey_id, ? from question q, option o where o.question_id=q.question_id AND o.option_id=?")
+            int updated = entityManager.createNativeQuery("INSERT INTO response (OPTION_ID, QUESTION_ID, SURVEY_ID, SUBMITTED_DATE, USER_ID) " +
+                    "select o.option_id, o.question_id, q.survey_id,sysdate, ? from question q, option o where o.question_id=q.question_id AND o.option_id=?")
                     .setParameter(1, userId)
                     .setParameter(2, optionId)
                     .executeUpdate();
