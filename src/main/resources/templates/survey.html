@@ -2,26 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Finish survey</title>
+    <title>Submit survey</title>
 <!--    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>-->
     <!-- Bootstrap CSS file -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
-<h4>Please Submit the Survey</h4>
-<a class="nav-link" th:href="@{/surveys}"><< Back to Surveys</a>
-<br/><br/>
+<!--<h5>Please Submit the Survey</h5>-->
+<!--<a class="nav-link" th:href="@{/surveys}"><< Back to Surveys</a>-->
 <div th:if="${survey}">
     <form th:action="@{/responses}" method="post" th:object="${response}">
         <input type="hidden" name="surveyId" th:value="${survey.surveyId}">
-        <div th:if="${errors}"><h4 th:utext="${errors}">...</h4></div>
-
-        <h4 th:utext="${survey.surveyName}">...</h4>
+        <div class="alert alert-danger" th:if="${errors}"><h6 th:utext="${errors}">...</h6></div>
+        <div class="col-xs-4 text-center text-info"><h5 class="card-header" th:utext="${survey.surveyName}">...</h5></div>
         <br/>
         <table border="0">
             <tr th:each ="question : ${survey.questions}">
-                <td><h5 th:utext="${question.title}">...</h5></td>
+                <td><h5 class="card-header" th:utext="${question.title}">...</h5></td>
                 <table border="0">
                     <ul class="list-group ">
                         <li class="list-group-item" th:each="option : ${question.options}">
@@ -34,7 +32,13 @@
             </tr>
         </table>
         <br/>
-        <div><button type="submit" class="btn btn-primary">Submit</button></div>
+<!--        <div class="col-xs-4"><a href="@{/surveys}" class="btn btn-success" role="button">❮❮ Back To Surveys</a></div>-->
+<!--        <div class="col-xs-4 text-right"><button type="submit" class="btn btn-success">Submit</button></div>-->
+        <div class="text-center container-fluid">
+<!--                <a href="@{/surveys}" class="pull-left btn btn-success" role="button">❮❮ Back To Surveys</a>-->
+                <a class="pull-left btn btn-success" role="button" th:href="@{/surveys}">❮❮ Back To Surveys</a>
+                <button type="submit" class="pull-right btn btn-success">Submit</button>
+        </div>
     </form>
 </div>
 <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />

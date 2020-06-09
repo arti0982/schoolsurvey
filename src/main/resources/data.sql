@@ -1,3 +1,4 @@
+--Data setup Scripts
 INSERT INTO SURVEY(SURVEY_ID, SURVEY_NAME) VALUES ('1', 'Student Satisfaction Survey');
 INSERT INTO SURVEY(SURVEY_ID, SURVEY_NAME) VALUES ('2', 'Parent Survey');
 INSERT INTO SURVEY(SURVEY_ID, SURVEY_NAME) VALUES ('3', 'Faculty Satisfaction Survey');
